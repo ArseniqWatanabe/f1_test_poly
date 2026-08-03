@@ -10,6 +10,18 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender
   },
   {
+    path: 'profile/:id',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'docs/:id',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'news/:id',
+    renderMode: RenderMode.Server,
+  },
+  {
     path: '**',
     renderMode: RenderMode.Prerender
   }
