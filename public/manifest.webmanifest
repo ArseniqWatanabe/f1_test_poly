@@ -1,0 +1,23 @@
+{
+    "name": "M8 Research Platform",
+    "short_name": "M8",
+    "description": "M8 Research Platform: A proprietary, reusable core engine for high-tech biomedicine. Powering AI diagnostics, medical robotics, and advanced health analytics.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1a1a2e",
+    "theme_color": "#FFD700",
+    "orientation": "any",
+    "categories": [
+        "medical",
+        "productivity",
+        "research"
+    ],
+    "icons": [
+        {
+            "src": "/icons/logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ]
+}

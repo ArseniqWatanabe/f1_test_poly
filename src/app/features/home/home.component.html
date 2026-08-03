@@ -1,0 +1,65 @@
+<div class="home-page">
+    <div class="home-header">
+        <h1 class="page-title">Dashboard</h1>
+        <p class="page-subtitle">Platform overview and latest updates</p>
+    </div>
+
+    <div class="stats-grid">
+        @for (stat of stats(); track stat.id) {
+        <div class="stat-card">
+            <div class="stat-header">
+                <span class="stat-label">{{ stat.label }}</span>
+                @if (stat.status === 'positive') {
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                    <polyline points="16 7 22 7 22 13"></polyline>
+                </svg>
+                } @else if (stat.status === 'neutral') {
+                <svg class="stat-icon neutral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                }
+            </div>
+            <div class="stat-body">
+                <span class="stat-value">{{ stat.value }}</span>
+                @if (stat.trend) {
+                <span class="stat-trend" [class]="stat.status">{{ stat.trend }}</span>
+                }
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="news-section">
+        <div class="section-header">
+            <h2 class="section-title">Latest Updates</h2>
+            <a routerLink="/news" class="view-all-link">
+                View all
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="news-grid">
+            @for (item of news(); track item.id) {
+            <article class="news-card">
+                <div class="news-meta">
+                    <span class="news-tag">{{ item.tag }}</span>
+                    <span class="news-date">{{ item.date }}</span>
+                </div>
+                <h3 class="news-title">{{ item.title }}</h3>
+                <p class="news-summary">{{ item.summary }}</p>
+                <div class="news-footer">
+                    <a routerLink="/news/{{ item.id }}" class="read-more">
+                        Read more
+                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="settings-page">
+    <div class="settings-header">
+        <h1 class="page-title">Settings</h1>
+    </div>
+
+    <div class="settings-content">
+        <section class="settings-section">
+            <div class="section-header">
+                <h2 class="section-title">Appearance</h2>
+            </div>
+
+            <div class="setting-item">
+                <label class="setting-label">Theme</label>
+                <div class="setting-control">
+                    <app-custom-select [options]="themeOptions" [selectedId]="currentTheme()" placeholder="Выбрать тему"
+                        (selected)="changeTheme($event)">
+                    </app-custom-select>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

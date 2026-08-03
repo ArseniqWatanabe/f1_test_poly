@@ -1,0 +1,76 @@
+<div class="admin-page">
+    <div class="admin-header">
+        <h1 class="page-title">Admin Panel</h1>
+    </div>
+
+    <div class="admin-grid">
+        <section class="admin-section profile-section">
+            <h2 class="section-title">Profile</h2>
+            <div class="section-content">
+                <div class="empty-state">
+                    <div class="empty-content">
+                        <span class="empty-icon"></span>
+                        <span class="empty-text">User Profile Component</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-section dictionaries-section">
+            <h2 class="section-title">Dictionaries</h2>
+            <div class="section-content">
+                @if (isLoadingDict()) {
+                <div class="loading-state">
+                    <div class="loading-content">
+                        <span class="loading-spinner"></span>
+                        <span class="loading-text">Loading...</span>
+                    </div>
+                </div>
+                } @else if (errorDict()) {
+                <div class="error-alert">
+                    <span class="error-icon">⚠</span>
+                    <span class="error-message">{{ errorDict() }}</span>
+                </div>
+                } @else {
+                <app-table [columns]="columnsDict" [data]="dictionaries()" [enableClick]="true"
+                    (rowClick)="onTableSelect($event.name)">
+                </app-table>
+                }
+            </div>
+        </section>
+
+        <section class="admin-section table-data-section">
+            <h2 class="section-title">
+                Table Data
+                @if (selectedTable()) {
+                <span class="selected-table">- {{ selectedTable() }}</span>
+                }
+            </h2>
+            <div class="section-content">
+                @if (!selectedTable()) {
+                <div class="empty-state">
+                    <div class="empty-content">
+                        <span class="empty-icon"></span>
+                        <span class="empty-text">Choose Table</span>
+                    </div>
+                </div>
+                } @else if (isLoadingData()) {
+                <div class="loading-state">
+                    <div class="loading-content">
+                        <span class="loading-spinner"></span>
+                        <span class="loading-text">Loading...</span>
+                    </div>
+                </div>
+                } @else if (errorData()) {
+                <div class="error-alert">
+                    <span class="error-icon">⚠</span>
+                    <span class="error-message">{{ errorData() }}</span>
+                </div>
+                } @else {
+                <app-table [columns]="columnsData()" [data]="tableData()">
+                </app-table>
+                }
+            </div>
+        </section>
+    </div>
+</div>

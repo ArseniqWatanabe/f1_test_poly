@@ -1,0 +1,23 @@
+<header class="app-header">
+  <div class="header-container">
+    <button class="burger" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="header-nav" [class.open]="isMenuOpen">
+      <a routerLink="/home" routerLinkActive="active" (click)="isMenuOpen = false" ariaCurrentWhenActive="page">Home</a>
+      <a routerLink="/sandbox" routerLinkActive="active" (click)="isMenuOpen = false"
+        ariaCurrentWhenActive="page">Sandbox</a>
+      <a routerLink="/admin" routerLinkActive="active" (click)="isMenuOpen = false"
+        ariaCurrentWhenActive="page">Admin</a>
+      <a routerLink="/shop" routerLinkActive="active" (click)="isMenuOpen = false"
+        ariaCurrentWhenActive="page">Marketplace</a>
+      <a routerLink="/friends" routerLinkActive="active" (click)="isMenuOpen = false"
+        ariaCurrentWhenActive="page">Community</a>
+      <a routerLink="/profile" routerLinkActive="active" (click)="isMenuOpen = false"
+        ariaCurrentWhenActive="page">Profile</a>
+    </nav>
+  </div>
+</header>

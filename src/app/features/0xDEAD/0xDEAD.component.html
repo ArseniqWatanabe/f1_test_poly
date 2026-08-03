@@ -1,0 +1,12 @@
+<div class="pixel-grid">
+    @for (pixel of pixels; track pixel.id) {
+    <div class="pixel" [style.grid-row]="pixel.row + 1" [style.grid-column]="pixel.col + 1"
+        [style.--delay]="pixel.animDelay + 's'" [style.--duration]="pixel.animDuration + 's'">
+    </div>
+    }
+</div>
+
+<div class="slogan-container" (click)="navigateToHome()">
+    <h1 class="slogan-main">SANGUINE LAVAMINI</h1>
+    <p class="slogan-sub">FRATRES ET SORORES, QUONIAM PURIUS EST AQUA</p>
+</div>

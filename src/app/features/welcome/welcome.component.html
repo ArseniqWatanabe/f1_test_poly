@@ -1,0 +1,52 @@
+<div class="welcome-wrapper" [class.state-auth]="showAuthScreen">
+
+    <div class="welcome-page">
+        <div class="tectonic-grid">
+            <div class="plate" style="--tx: 20px; --ty: -15px; --delay: 0s;"></div>
+            <div class="plate plate-wide" style="--tx: -18px; --ty: 12px; --delay: 1.2s;"></div>
+            <div class="plate" style="--tx: 15px; --ty: 10px; --delay: 2.5s;"></div>
+
+            <div class="plate plate-tall" style="--tx: -12px; --ty: -20px; --delay: 0.8s;"></div>
+            <div class="plate plate-large" style="--tx: 22px; --ty: 18px; --delay: 1.8s;"></div>
+            <div class="plate" style="--tx: -10px; --ty: -8px; --delay: 3s;"></div>
+
+            <div class="plate" style="--tx: 18px; --ty: -12px; --delay: 2.2s;"></div>
+            <div class="plate" style="--tx: -15px; --ty: 15px; --delay: 0.5s;"></div>
+            <div class="plate plate-wide" style="--tx: 12px; --ty: -18px; --delay: 1.5s;"></div>
+
+            <div class="plate plate-large" style="--tx: -20px; --ty: 10px; --delay: 2.8s;"></div>
+            <div class="plate plate-tall" style="--tx: 16px; --ty: -14px; --delay: 0.3s;"></div>
+            <div class="plate" style="--tx: -14px; --ty: 20px; --delay: 1.9s;"></div>
+
+            <div class="plate" style="--tx: 10px; --ty: -16px; --delay: 3.2s;"></div>
+            <div class="plate plate-wide" style="--tx: -18px; --ty: 14px; --delay: 0.7s;"></div>
+            <div class="plate" style="--tx: 20px; --ty: -10px; --delay: 2.1s;"></div>
+        </div>
+
+        <div class="vignette"></div>
+
+        <div class="welcome-content">
+            <h1 class="welcome-logo">M8</h1>
+            <p class="welcome-tagline">Research Platform</p>
+            <button class="btn-enter" (click)="showAuthScreen = true">
+                Enter
+            </button>
+        </div>
+    </div>
+
+    <div class="auth-page">
+
+        <div class="vignette"></div>
+        <div class="auth-content">
+            <div class="auth-logo">M8</div>
+            <form class="auth-form" (ngSubmit)="submitLogin()">
+                <input type="text" name="login" autocomplete="login" placeholder="Login" class="auth-input" />
+                <input type="password" name="password" autocomplete="current-password" placeholder="Password"
+                    class="auth-input" />
+                <button type="submit" class="btn-auth" (click)="submitLogin()">Sign In</button>
+            </form>
+            <button class="btn-back" (click)="showAuthScreen = false">Back</button>
+        </div>
+    </div>
+
+</div>

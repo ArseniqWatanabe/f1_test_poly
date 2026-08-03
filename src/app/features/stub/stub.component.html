@@ -1,0 +1,24 @@
+<div class="stub-page">
+    <div class="tectonic-grid">
+        @for (i of [1,2,3,4,5,6,7,8,9,10,11,12]; track i) {
+        <div class="plate" [style.--delay]="(i * 0.5) + 's'"></div>
+        }
+    </div>
+
+    <div class="vignette"></div>
+
+    <div class="stub-content">
+        <div class="stub-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+        </div>
+        <h1 class="stub-title">{{ featureName }}</h1>
+        <p class="stub-subtitle">Coming Soon</p>
+        <p class="stub-description">
+            This feature is currently under development and will be available in a future update.
+        </p>
+        <button class="back-link" (click)="goBack()">Go Back</button>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+:host {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #1a0a0a 0%, #0a0000 100%);
+    position: relative;
+}
+
+.pixel-grid {
+    display: grid;
+    grid-template-columns: repeat(60, 2vmax);
+    grid-template-rows: repeat(30, 2vmax);
+    gap: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pixel {
+    width: 2vmax;
+    height: 2vmax;
+    background: #2a0000;
+    border: 1px solid rgba(139, 0, 0, 0.1);
+    contain: content;
+    will-change: background-color;
+
+    animation: breathe 10s ease-in-out var(--delay) infinite;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        background: #8b0000;
+        border-color: rgba(200, 50, 50, 0.8);
+        z-index: 10;
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        background: #1a0000;
+        opacity: 0.6;
+    }
+
+    50% {
+        background: #4a0000;
+        opacity: 1;
+    }
+}
+
+.slogan-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+    z-index: 100;
+    pointer-events: all;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+.slogan-main {
+    font-family: 'Georgia', serif;
+    font-size: 4vmax;
+    font-weight: 700;
+    color: #8b0000;
+    text-shadow: 0 0 20px rgba(139, 0, 0, 0.8);
+    margin: 0 0 1vmax 0;
+    letter-spacing: 0.1em;
+}
+
+.slogan-sub {
+    font-family: 'Georgia', serif;
+    font-size: 1.5vmax;
+    font-weight: 400;
+    color: #5c0000;
+    margin: 0;
+    letter-spacing: 0.15em;
+    font-style: italic;
+}

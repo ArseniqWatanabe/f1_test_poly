@@ -1,0 +1,62 @@
+<div class="profile-page">
+    <div class="profile-header">
+        <div class="profile-avatar">
+            {{ getInitials(profile().name) }}
+        </div>
+        <div class="profile-info">
+            <h1 class="profile-name">{{ profile().name }}</h1>
+            <p class="profile-status">{{ profile().status }}</p>
+            <div class="profile-meta">
+                <span class="wallet-address">{{ profile().walletAddress }}</span>
+                <span class="join-date">Joined {{ profile().joinDate }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-content">
+        <section class="stats-section">
+            <h2 class="section-title">Statistics</h2>
+            <div class="stats-grid">
+                @for (stat of stats(); track stat.label) {
+                <div class="stat-card">
+                    <span class="stat-value">{{ stat.value }}</span>
+                    <span class="stat-label">{{ stat.label }}</span>
+                </div>
+                }
+            </div>
+        </section>
+
+        <section class="badges-section">
+            <h2 class="section-title">Achievements</h2>
+            <div class="badges-grid">
+                @for (badge of badges(); track badge.id) {
+                <div class="badge-card">
+                    <div class="badge-icon">{{ badge.icon }}</div>
+                    <div class="badge-info">
+                        <h3 class="badge-name">{{ badge.name }}</h3>
+                        <span class="badge-date">{{ badge.earned | date:'MMM y' }}</span>
+                    </div>
+                </div>
+                }
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2 class="section-title">Settings</h2>
+            <div class="settings-list">
+                <div class="setting-item">
+                    <span class="setting-label">Profile Visibility</span>
+                    <span class="setting-value">Public</span>
+                </div>
+                <div class="setting-item">
+                    <span class="setting-label">Notifications</span>
+                    <span class="setting-value">Enabled</span>
+                </div>
+                <div class="setting-item">
+                    <span class="setting-label">API Access</span>
+                    <span class="setting-value">Active</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

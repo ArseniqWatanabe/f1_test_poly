@@ -1,0 +1,80 @@
+<div class="sandbox-page">
+    <div class="sandbox-header">
+        <h1 class="page-title">Sandbox</h1>
+    </div>
+
+    <div class="sandbox-content">
+        <div class="canvas-container" #canvasContainer>
+            @if (isLoading()) {
+            <div class="loading-state">Loading...</div>
+            } @else if (error()) {
+            <div class="error-alert">{{ error() }}</div>
+            } @else {
+            <canvas #sandboxCanvas class="sandbox-canvas"></canvas>
+            }
+
+            <div class="point-controls">
+                <div class="d-pad">
+                    <button class="d-btn d-left" (click)="movePoint('left')"></button>
+                    <button class="d-btn d-up" (click)="movePoint('down')"></button>
+                    <button class="d-btn d-right" (click)="movePoint('right')"></button>
+                    <button class="d-btn d-center" (click)="changeRadius(-1)">−</button>
+                    <button class="d-btn d-down" (click)="movePoint('up')"></button>
+                    <button class="d-btn d-center" (click)="changeRadius(1)">+</button>
+                </div>
+            </div>
+
+            <div class="canvas-actions">
+                <button class="action-btn">T</button>
+                <button class="action-btn">T</button>
+            </div>
+        </div>
+
+        <div class="sandbox-controls stream-controls">
+            <div class="control-row functional-row">
+                <button class="btn btn-primary" (click)="loadCoordinates()" [disabled]="isStreaming()">
+                    Reload
+                </button>
+                <button class="btn btn-primary" (click)="startStream()" [disabled]="isStreaming()">
+                    {{ isStreaming() ? 'Stop' : 'Stream' }}
+                </button>
+            </div>
+
+            <div class="control-divider"></div>
+
+            <div class="selectors-grid">
+                <div class="selector-item">
+                    <label class="selector-label">Canvas Color</label>
+                    <app-custom-select [options]="canvasColorOptions" [selectedId]="canvasColor()"
+                        (selected)="onCanvasColorSelect($event)">
+                    </app-custom-select>
+                </div>
+
+                <div class="selector-item">
+                    <label class="selector-label">Animation</label>
+                    <app-custom-select [options]="animationOptions" [selectedId]="animationType()"
+                        (selected)="onAnimationSelect($event)">
+                    </app-custom-select>
+                </div>
+
+                <div class="selector-item">
+                    <label class="selector-label">Point Color</label>
+                    <app-custom-select [options]="pointColorOptions" [selectedId]="pointColor()"
+                        (selected)="onPointColorSelect($event)">
+                    </app-custom-select>
+                </div>
+
+                <div class="selector-item">
+                    <label class="selector-label">Effect</label>
+                    <app-custom-select [options]="canvasEffectOptions" [selectedId]="canvasEffect()"
+                        (selected)="onCanvasEffectSelect($event)">
+                    </app-custom-select>
+                </div>
+            </div>
+        </div>
+
+        @if (streamError()) {
+        <div class="stream-error">{{ streamError() }}</div>
+        }
+    </div>
+</div>

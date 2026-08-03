@@ -1,0 +1,22 @@
+<div class="docs-viewer-page">
+    @if (document(); as doc) {
+    <div class="viewer-header">
+        <a routerLink="/docs" class="back-link">
+            Back to Documentation
+        </a>
+        <h1 class="doc-title">{{ doc.title }}</h1>
+        <div class="doc-meta">
+            <span class="meta-item">Updated: {{ doc.updatedAt | date:'MMMM d, y' }}</span>
+        </div>
+    </div>
+
+    <div class="viewer-content">
+        <div class="doc-body" [innerHTML]="parsedContent()"></div>
+    </div>
+    } @else {
+    <div class="not-found">
+        <h2>Document not found</h2>
+        <a routerLink="/docs">Back to Documentation</a>
+    </div>
+    }
+</div>

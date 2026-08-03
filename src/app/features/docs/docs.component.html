@@ -1,0 +1,32 @@
+<div class="docs-page">
+    <div class="docs-header">
+        <h1 class="page-title">Documentation</h1>
+        <p class="page-subtitle">Research protocols, legal agreements, and technical specifications</p>
+    </div>
+
+    <div class="docs-content">
+        @for (category of categories; track category.id) {
+        @if (getDocsByCategory(category.id).length > 0) {
+        <section class="docs-section">
+            <div class="section-header">
+                <h2 class="section-title">{{ category.name }}</h2>
+            </div>
+
+            <div class="docs-grid">
+                @for (doc of getDocsByCategory(category.id); track doc.id) {
+                <a [routerLink]="['/docs', doc.id]" class="doc-card">
+                    <div class="card-content">
+                        <h3 class="doc-title">{{ doc.title }}</h3>
+                        <p class="doc-summary">{{ doc.summary }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="doc-date">{{ doc.updatedAt | date:'MMM d, y' }}</span>
+                    </div>
+                </a>
+                }
+            </div>
+        </section>
+        }
+        }
+    </div>
+</div>

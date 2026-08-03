@@ -1,0 +1,25 @@
+<div class="not-found-page">
+    <div class="tectonic-grid">
+        @for (i of [1,2,3,4,5,6,7,8,9,10,11,12]; track i) {
+        <div class="plate" [style.--delay]="(i * 0.5) + 's'"></div>
+        }
+    </div>
+
+    <div class="vignette"></div>
+
+    <div class="not-found-content">
+        <div class="error-wrapper">
+            <h1 class="error-code">404</h1>
+            <div class="error-line"></div>
+        </div>
+
+        <p class="error-message">Page Not Found</p>
+        <p class="error-description">
+            The requested resource does not exist or has been moved
+        </p>
+
+        <a routerLink="/0xDEAD" class="btn-home">
+            Home
+        </a>
+    </div>
+</div>

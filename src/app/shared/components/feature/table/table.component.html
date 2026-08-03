@@ -1,0 +1,28 @@
+<div class="table-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                @for (column of columns(); track column.key) {
+                <th class="table-header-cell">{{ column.label }}</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (row of data(); track row.id) {
+            <tr (click)="onRowClick(row)" class="table-row" [class.clickable]="enableClick()">
+                @for (column of columns(); track column.key) {
+                <td class="table-cell">{{ row[column.key] }}</td>
+                }
+            </tr>
+            } @empty {
+            <tr>
+                <td [attr.colspan]="columns().length" class="table-empty">
+                    <div class="empty-content">
+                        <span class="empty-text">No data available</span>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
