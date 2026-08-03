@@ -1,7 +1,7 @@
 <div class="pixel-grid">
     @for (pixel of pixels; track pixel.id) {
     <div class="pixel" [style.grid-row]="pixel.row + 1" [style.grid-column]="pixel.col + 1"
-        [style.--delay]="pixel.animDelay + 's'" [style.--duration]="pixel.animDuration + 's'">
+        [style.--delay]="pixel.animDelay + 's'">
     </div>
     }
 </div>
